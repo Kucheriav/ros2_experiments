@@ -13,6 +13,9 @@ setup(
         ('share/ament_index/resource_index/packages', ['resource/' + package_name]),
         ('share/' + package_name, ['package.xml']),
         (os.path.join('share', package_name, 'launch'),   glob('launch/*.launch.py')),
+        (os.path.join('share', package_name, 'urdf'), 
+            glob('urdf/*.urdf')),
+        (os.path.join('share', package_name, 'config'), glob('config/*.yaml')),
     ],
     install_requires=['setuptools'],
     zip_safe=True,
@@ -39,6 +42,8 @@ setup(
         'encoder_simulator = my_robot_controller.encoder_simulator:main',
         'wheel_odometry = my_robot_controller.wheel_odometry:main',
         'lidar_simulator = my_robot_controller.lidar_simulator:main',
+        'static_transform_publisher = my_robot_controller.static_transform_publisher:main',
+        'slam_world_simulator = my_robot_controller.slam_world_simulator:main',
         ],
     },
 )
