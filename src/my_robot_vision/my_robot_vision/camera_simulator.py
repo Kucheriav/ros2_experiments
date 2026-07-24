@@ -15,7 +15,7 @@ class CameraSimulator(Node):
     def __init__(self):
         super().__init__('camera_simulator')
         self.width, self.height, self.fps = 640, 480, 30
-        self.image_pub = self.create_publisher(Image, '/camera_node/image_raw', 10)
+        self.image_pub = self.create_publisher(Image, '/camera/image_raw', 10)
         self.info_pub  = self.create_publisher(CameraInfo, '/camera/camera_info', 10)
         self.timer = self.create_timer(1.0 / self.fps, self.publish_frame)
         self.frame_count = 0
